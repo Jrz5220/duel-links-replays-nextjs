@@ -1,0 +1,19 @@
+.footer {
+    background-color: var(--dark-navbar-color);
+    background: linear-gradient(to bottom, #181c1f, #1e272e 60%);
+    color: #fff;
+}
+.footer .setWidth {
+    width: 60%;
+}
+.footerLink {
+    color: var(--light-blue);
+    transition: color 0.3s;
+}
+.footerLink:hover,
+.footerLink:focus {
+    color: var(--main-bg-color);
+}
+.disclaimer {
+    color: #808e9b;
+}

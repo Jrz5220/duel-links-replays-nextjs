@@ -1,0 +1,10 @@
+.mainNavbar {
+    align-items: start;
+    background: linear-gradient(to bottom, #181c1f, #1e272e);
+}
+.navLink {
+    font-size: 1.25rem;
+}
+.myNavbarToggler {
+    border: none;
+}

@@ -1,0 +1,32 @@
+.glowBtn {
+    background-color: var(--dark-navbar-color);
+    border: 2px solid #fff;
+    border-radius: 0.5rem;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    transition: box-shadow 0.3s, text-shadow 0.3s;
+}
+.glowBtn:hover,
+.glowBtn:focus {
+    box-shadow: 0 0 5px #fff;
+    text-shadow: 0 0 5px #fff;
+    color: #fff;
+}
+.glowBtn:before {
+    content: "";
+    background-color: #fff;
+    box-shadow: 0 0 10px #fff;
+    filter: blur(1px);
+    position: absolute;
+    width: 10px;
+    height: 100px;
+    top: -1rem;
+    opacity: 0.9;
+    transition: 0.6s;
+    transform: rotate(20deg) translateX(-45px);
+}
+.glowBtn:hover:before {
+    transform: rotate(20deg) translate(120px, -30px);
+}

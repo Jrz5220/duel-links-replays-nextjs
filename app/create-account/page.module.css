@@ -1,0 +1,25 @@
+.fullWH {
+    width: 100%;
+    height: 100%;
+}
+.coloredBg {
+    background-color: #ff9019;
+    background: -webkit-linear-gradient(#212529 25%, #ff9019);
+                background: -o-linear-gradient(#212529 25%, #ff9019);
+                background: linear-gradient(#212529 25%, #ff9019);
+    color: #fff;
+}
+.overflow {
+    overflow: scroll;
+}
+
+/*
+================================
+  MEDIA QUERIES
+================================
+*/
+@media (min-width: 767px) {
+    .overflow {
+        overflow: hidden;
+    }
+}

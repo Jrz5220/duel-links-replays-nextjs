@@ -1,0 +1,47 @@
+.heroContent {
+    background-color: var(--main-bg-color);
+    background-image: url("../../../public/images/hero/yugioh-header-sm.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+.heroTitle {
+    text-shadow: 2px 2px 10px var(--dark-navbar-color);
+}
+
+/*
+================================
+  MEDIA QUERIES
+================================
+*/
+@media (min-width: 576px) {
+    .heroContent {
+        text-align: left;
+        /* change image to yugioh-header.jpg */
+        background-image: url("../../../public/images/hero/yugioh-header.jpg");
+    }
+}
+@media (min-width: 767px) {
+    .heroContent {
+        min-height: 350px;
+    }
+    .heroTitle {
+        width: 52%;
+    }
+}
+@media (min-width: 992px) {
+    .heroContent {
+        min-height: 400px;
+        height: 100%;
+    }
+}
+@media (min-width: 1537px) {
+    .heroContent {
+        min-height: 450px;
+        /* change image to yugioh-header-xl.jpg */
+        background-image: url("../../../public/images/hero/yugioh-header-xl.jpg");
+    }
+}

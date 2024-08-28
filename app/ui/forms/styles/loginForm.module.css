@@ -1,0 +1,8 @@
+.loginForm {
+    color: var(--dark-navbar-color);
+    max-width: 250px;
+}
+.forgotPwdLink {
+    font-size: 0.75rem;
+    text-decoration: underline;
+}
