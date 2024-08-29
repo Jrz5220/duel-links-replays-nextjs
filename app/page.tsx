@@ -5,8 +5,6 @@ import Navbar from "./ui/navbar/navbar";
 import Footer from "./ui/footer/footer";
 import getUsers from "./lib/userData";
 import getDuels from "./lib/duelData";
-import duels from "./models/duel";
-import user from "./models/user";
 import Hero from "./ui/hero/hero";
 import HomeDescriptionSection from "./ui/home-description-section/home-description-section";
 import LatestUploadsSection from "./ui/latest-uploads-section/latest-uploads";
