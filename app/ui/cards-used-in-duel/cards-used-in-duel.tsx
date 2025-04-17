@@ -1,4 +1,4 @@
-import styles from "./cards-used-in-duel.module.css";
+import styles from "./styles/cards-used-in-duel.module.css";
 import CardsRow from "./cards-row";
 import Image from "next/image";
 import { IYugiohCard } from "@/app/models/duel";

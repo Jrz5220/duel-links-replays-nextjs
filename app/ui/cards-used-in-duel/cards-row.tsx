@@ -1,10 +1,9 @@
-import Script from "next/script";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark, faDragon, faMeteor, faShieldHalved, faStar } from "@fortawesome/free-solid-svg-icons";
 import { faCircleXmark } from "@fortawesome/free-regular-svg-icons";
 import { IYugiohCard } from "@/app/models/duel";
-import styles from "./cards-row.module.css";
+import styles from "./styles/cards-row.module.css";
 import EnlargeCardOnClickScript from "./enlarge-card-on-click-script";
 
 const displayMonsterProps = (card: IYugiohCard) => {
