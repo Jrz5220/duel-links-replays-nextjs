@@ -1,5 +1,5 @@
 import PatternRow from "./pattern-row";
-import styles from './defaultBackgroundPattern.module.css';
+import styles from './styles/defaultBackgroundPattern.module.css';
 
 export default function DefaultBackgroundPattern({ numOfRows }: { numOfRows: number }) {
     const bgPatternRows = [];

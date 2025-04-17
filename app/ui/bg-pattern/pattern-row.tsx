@@ -1,4 +1,4 @@
-import styles from "./patternRow.module.css";
+import styles from "./styles/patternRow.module.css";
 
 export default function PatternRow() {
     return(

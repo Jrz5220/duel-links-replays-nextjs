@@ -1,4 +1,4 @@
-import styles from "./defaultBackgroundPattern.module.css";
+import styles from "./styles/patternRow.module.css";
 import rowStyles from "./patternRow.module.css";
 import PatternRow from "./pattern-row";
 
