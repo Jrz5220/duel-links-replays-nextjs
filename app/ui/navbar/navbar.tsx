@@ -15,6 +15,7 @@ function NavbarTogglerButton() {
 export default function Navbar({ displaySignOutButton = false }: { displaySignOutButton?: boolean }) {
     return(
             <nav id="mainNavbar" className={`navbar navbar-dark bg-dark navbar-expand-lg px-3 ${styles.mainNavbar}`}>
+                {/* Link component from next.js prefetches the link page in the background to reduce load times */}
                 <Link href={"/"}><span className={`navbar-brand fs-4 ${kanit.className}`}>Duel Links Replays</span></Link>
                 <NavbarTogglerButton />
                 {/* useFormState error here */}
