@@ -8,8 +8,6 @@ import DashboardTabContent from "@/app/ui/dashboard/tabs/tab-content/dashboard-t
 export default async function Page({ params }: { params: { username: string } }) {
     const { username } = await params;
     const user = await Users.findOne({ username: username }, "username email favorites history").exec();
-    const favorites = user.favorites;
-    const history = user.history;
 
     return(
         <div className={`${styles.accountPageGrid}`}>

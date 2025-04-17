@@ -1,6 +1,7 @@
 import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./dashboard-header.module.css";
+import { faTwitch, faInstagram, faXTwitter, faYoutube } from "@fortawesome/free-brands-svg-icons";
 
 export default function DashboardHeader({ username }: { username: string }) {
     return(
@@ -9,8 +10,14 @@ export default function DashboardHeader({ username }: { username: string }) {
                 <div className={`me-md-4 ${styles.accountAvatar}`}>
                     <FontAwesomeIcon icon={faCircleUser} />
                 </div>
-                <div className={`${styles.username}`}>
+                <div className={`d-md-flex flex-column align-items-md-start ${styles.username}`}>
                     {username}
+                    <div className={`d-flex justify-content-between align-items-center mt-2 ${styles.socialMediaIcons}`}>
+                        <FontAwesomeIcon icon={faTwitch} className={styles.brandIcon} />
+                        <FontAwesomeIcon icon={faInstagram} className={styles.brandIcon} />
+                        <FontAwesomeIcon icon={faXTwitter} className={styles.brandIcon} />
+                        <FontAwesomeIcon icon={faYoutube} className={styles.brandIcon} />
+                    </div>
                 </div>
             </div>
         </header>
