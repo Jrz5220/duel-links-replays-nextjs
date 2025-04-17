@@ -1,5 +1,5 @@
 import { Button } from "../../button";
-import styles from "./page.module.css";
+import styles from "./styles/latest-uploads-carousel.module.css";
 import VideoPlayer from "../../video-player/video-player";
 import { kanit } from "../../fonts";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
