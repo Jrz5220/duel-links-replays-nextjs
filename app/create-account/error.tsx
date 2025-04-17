@@ -1,10 +1,6 @@
-import ErrorHeader from "../ui/error-page/error-header";
-import ErrorBody from "../ui/error-page/error-body";
-import { metadata } from "../layout";
-import MyErrorPage from "../ui/error-page/my-error-page";
+"use client";
 
-metadata.title = "Create Account Error";
-metadata.description = "Error creating account";
+import MyErrorPage from "../ui/error-page/my-error-page";
 
 export default function Error({ error }: { error: Error & {digest?: string} }) {
     let statusCode = 500;

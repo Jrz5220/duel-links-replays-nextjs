@@ -8,7 +8,7 @@ import { useState, useEffect } from "react";
 
 export default function AddToFavoritesButton({ userId }: { userId: string | null }) {
     const [favBtnClicked, setFavBtnClicked] = useState(false);  // notifies us if the button was clicked
-    const [handleBtnClick, setHandleBtnClick] = useState(false);    // used to check if we need to perform any actions in useEffect
+    const [handleBtnClick, setHandleBtnClick] = useState(false);    // used to check if we need to perform any actions in useEffect when the btn is clicked
     const [addToHistory, setAddToHistory] = useState(true);     // if true, add video to user's history. else, don't because it was just added to history (duplicate button click)
     const updateFavBtnStyle = (theBtn: HTMLElement, forScreenReader: Element, action: string) => {
         if(action.toLowerCase() === "add") {
@@ -95,7 +95,7 @@ export default function AddToFavoritesButton({ userId }: { userId: string | null
 
                 // SECTION: Handling the button clicks
 
-                // user is not logged in so ask them to sign in
+                // user clikced the button but is not logged in so ask them to sign in
                 if(!userId && handleBtnClick) {
                     // if the navbar-toggler button is display: block, the hamburger menu icon is displayed
                     const navbarToggler = document.getElementsByClassName("navbar-toggler")[0];
@@ -186,15 +186,20 @@ export default function AddToFavoritesButton({ userId }: { userId: string | null
         doEverything();
 
         return () => {
+            // reset the handleBtnClick state to false so that the useEffect hook doesn't run again when the component unmounts
             setHandleBtnClick(false);
             if(addToHistory) { setAddToHistory(false); }
         }
 
     }, [favBtnClicked]);   // the dependency array (if no dependencies are provided, the hook will still run at least once, when the component first mounts)
     
+    // this function is called when the button is clicked
+    // sets the favBtnClicked state to true, which will trigger the useEffect hook to add or remove the video from favorites
+    // we need to set handleBtnClick to true so that useEffect will only add the video to favorites when the button is clicked and not when the component initially renders
+    // without this, useEffect would save every video to favorites when the page intially loads, which is not what we want
     const handleFavBtnClick = () => {
         setHandleBtnClick(true);
-        setFavBtnClicked(favBtnClicked ? false : true)
+        setFavBtnClicked(favBtnClicked ? false : true);
     }
     
     return(
