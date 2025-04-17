@@ -1,0 +1,58 @@
+.tabsContainer {
+    background-color: var(--dark-navbar-color);
+    position: relative;
+    padding: 1rem 2rem;
+    margin: 0;
+}
+.carouselTab {
+    /* !important overides the bootstrap styles */
+    box-sizing: border-box !important;
+    color: var(--main-bg-color) !important;
+    font-size: 1.125rem !important;
+    position: relative !important;
+    width: auto !important;
+    height: auto !important;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    text-indent: 0 !important;
+    background-color: transparent !important;
+    border: 0 !important;
+}
+.carouselTab::before {
+    content: "" !important;
+    position: absolute !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    height: 2px !important;
+    background-color: var(--main-bg-color) !important;
+    transition: transform 300ms ease-in-out !important;
+    transform: scaleX(0) !important;
+}
+.carouselTab:focus::before,
+.carouselTab:active::before {
+    transform: scaleX(1) !important;
+}
+
+/* Media Queries */
+
+@media(min-width: 767px) {
+    .tabsContainer {
+        padding: 2rem 1rem;
+        height: 95vh;
+    }
+    .carouselTab {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    .gridItem:nth-child(1) {
+      grid-column-start: 2;
+    }
+    .gridItem:nth-child(3) {
+      grid-column-start: 2;
+    }
+    .gridItem:nth-child(2) {
+      grid-column: 1 / 2;
+      grid-row: 1 / span 2;
+    }
+}

@@ -3,13 +3,16 @@
 import styles from "./styles/createAccountForm.module.css";
 import { Button } from "../button";
 import { useFormState, useFormStatus } from "react-dom";
+import React from "react";
 import { register } from "@/app/lib/actions";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 
 export default function CreateAccountForm() {
     const [errorMessage, FormAction] = useFormState(register, undefined);
     return (
         <form id="registerForm" action={FormAction} className="d-flex flex-column align-items-start p-3">
-            {errorMessage && <p id="serverLoginErr" className={`p-2 small ${styles.errorMessage}`}><i className="fas fa-times-circle pe-2" style={{color: "#ff0000"}} aria-hidden="true"></i>{errorMessage}</p>}
+            {errorMessage && <p id="serverLoginErr" className={`p-2 small ${styles.errorMessage}`}><FontAwesomeIcon icon={faCircleXmark} style={{color: "#ff0000"}} aria-hidden="true" /> {errorMessage}</p>}
             <fieldset>
                 <legend className={styles.legend}>Register</legend>
                 <label className={`d-flex align-items-end mb-3 ${styles.regsiterAccountLabel}`}>

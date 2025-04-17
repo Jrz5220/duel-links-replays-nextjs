@@ -1,0 +1,15 @@
+.accountPageGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 270px auto auto;
+    background-color: var(--dark-navbar-color);
+}
+
+/* Media Queries */
+
+@media (min-width: 767px) {
+    .accountPageGrid {
+        grid-template-columns: 1fr 5fr; /* 6 columns */
+        grid-template-rows: 250px auto;
+    }
+}

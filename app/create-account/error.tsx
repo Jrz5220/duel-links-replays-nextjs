@@ -1,12 +1,24 @@
-"use client"
+import ErrorHeader from "../ui/error-page/error-header";
+import ErrorBody from "../ui/error-page/error-body";
+import { metadata } from "../layout";
+import MyErrorPage from "../ui/error-page/my-error-page";
 
-import { redirect } from "next/dist/server/api-utils"
+metadata.title = "Create Account Error";
+metadata.description = "Error creating account";
 
 export default function Error({ error }: { error: Error & {digest?: string} }) {
+    let statusCode = 500;
+    let errorCause = error.cause;
+    if(errorCause) {
+        if(typeof errorCause === "object") {
+            if("status" in errorCause) {
+                if(typeof errorCause.status === "number") {
+                    statusCode = errorCause.status;
+                }
+            }
+        }
+    }
     return (
-        <div>
-            <h2>Something went very wrong!</h2>
-            <p>Error: {error.message}</p>
-        </div>
+        <MyErrorPage errorCode={statusCode} errorMsg={error.message} />
     )
 }

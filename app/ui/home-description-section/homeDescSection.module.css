@@ -1,0 +1,8 @@
+.fontAwesomeIcon {
+    color: var(--main-bg-color);
+    background: linear-gradient(to left top, #ff3f34, #ff9019 60%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 4rem;
+}

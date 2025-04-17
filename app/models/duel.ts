@@ -1,16 +1,36 @@
 import mongoose from "mongoose";
 
-const yugiohCardSchema = new mongoose.Schema({
-    htmlId: String,
-    imgDir: String,
-    name: String,
-    type: String,
-    effect: String,
-    level: Number,
-    attribute: String,
-    summonRequirement: String,
-    atk: Number,
-    def: Number
+// interface representing a yugiohcard document in MongoDB
+// https://mongoosejs.com/docs/typescript.html
+export interface IYugiohCard {
+    htmlId: string;
+    imgDir: string;
+    name: string;
+    type: string;
+    effect: string;
+    level: number;
+    attribute: string;
+    summonRequirement: string;
+    atk: number;
+    def: number;
+}
+
+// Mongoose assigns each of your schemas an _id field by default if one is not passed into 
+// the Schema constructor. The type assigned is an ObjectId to coincide with MongoDB's 
+// default behavior. https://mongoosejs.com/docs/guide.html#_id
+// So there is no difference between explicitly declaring the _id prop in your Schemas or not
+
+const yugiohCardSchema = new mongoose.Schema<IYugiohCard>({
+    htmlId: { type: String, required: true },
+    imgDir: { type: String, required: true },
+    name: { type: String, required: true },
+    type: { type: String, required: true },
+    effect: { type: String, required: true },
+    level: { type: Number, required: true },
+    attribute: { type: String, required: true },
+    summonRequirement: { type: String, required: true },
+    atk: { type: Number, required: true },
+    def: { type: Number, required: true }
 }, {timestamps: true});
 
 const YugiohCard = mongoose.models.YugiohCard || mongoose.model("YugiohCard", yugiohCardSchema);

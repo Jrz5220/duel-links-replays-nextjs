@@ -1,4 +1,5 @@
 // testing database connection using mongodb
+// should be using userData.js
 
 import clientPromise from "@/lib/db";
 

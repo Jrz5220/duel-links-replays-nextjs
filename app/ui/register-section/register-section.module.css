@@ -7,7 +7,7 @@
     box-shadow: 0 0 2rem #000;
     max-width: 1200px;
 }
-.benefits {
+.accountBenefits {
     border: 5px solid #000;
     --s: 37px; /* control the size */ 
     --c:#0000,#1e272e .5deg 119.5deg,#0000 120deg;
@@ -26,7 +26,7 @@
     color: var(--light-gray-bg-color);
     text-shadow: 8px 8px 10px #000;
 }
-.benefits p i {
+.faIcon {
     color: var(--main-bg-color);
     background: linear-gradient(to left top, #ff3f34, #ff9019 60%);
     background-clip: text;

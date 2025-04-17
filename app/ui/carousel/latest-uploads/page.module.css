@@ -1,8 +1,11 @@
+.videoWrapper {
+    max-width: 1063px;
+}
 .indicatorButton {
     border: 5px solid #fff;
     border-radius: 50%;
-    width: 3px;
-    height: 3px;
+    width: 10px !important;
+    height: 10px !important;
     margin-left: 0.625rem;
     margin-right: 0.625rem;
 }
@@ -42,6 +45,16 @@
 
 @media (min-width: 576px) {
     .prevButton, .nextButton {
-        display: block;
+        display: flex;
+    }
+}
+@media (min-width: 767px) {
+    .prevButton, .nextButton {
+        margin: 0 3rem;
+    }
+}
+@media (min-width: 1400px) {
+    .prevButton, .nextButton {
+        bottom: 50%;
     }
 }

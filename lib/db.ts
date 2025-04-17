@@ -1,4 +1,4 @@
-// Create database connection using mongodb (for testing only. delete this folder when mongoose connection is complete)
+// Create database connection using mongodb
 
 import { MongoClient } from "mongodb";
 

@@ -1,0 +1,11 @@
+.bgDesign {
+    background-color: var(--main-bg-color);
+    background: linear-gradient(to bottom, #212529 0%,#ff9019 100%);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+.topElement {
+    position: relative;
+    z-index: 100;
+}

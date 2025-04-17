@@ -7,6 +7,8 @@ import clientPromise from "./lib/db";
 import bcrypt from "bcrypt";    // add type definitions for bcrypt: npm install --save @types/bcrypt
 import { z } from "zod";
 
+// calling signIn or signOut will trigger the authorize(credentials) method
+// BUT before authorize() is called, authorized() in auth.config.ts is called first
 export const { signIn, signOut, auth } = NextAuth({
     ...authConfig,
     providers: [
@@ -24,10 +26,9 @@ export const { signIn, signOut, auth } = NextAuth({
                     if(!user) return null;
                     // use bcrypt to validate password
                     const passwordsMatch = await bcrypt.compare(password, user.password);
-                    if(passwordsMatch) return user;
+                    if(passwordsMatch) { return user; }
                 }
-                console.log("invalid credentials");
-                return null;
+                return null;    // invalid credentials
             }
         })
     ],

@@ -1,0 +1,29 @@
+.mainSection {
+    background: linear-gradient(to bottom, #212529, #ff9019 100%);
+    overflow: auto;
+}
+.cardsUsedHeader {
+    text-shadow: 4px 4px 8px var(--dark-navbar-color);
+}
+.skillBoxCollapsed {
+    max-width: 900px;
+}
+.skillContainer {
+    background-color: var(--dark-navbar-color);
+    border-radius: 0.625rem;
+    color: #fff;
+}
+.skillDetails {
+    border: 4px outset var(--gray-bg-color);
+    line-height: 1.6;
+}
+.skillCardContainer {
+    min-width: 130px;
+    max-width: 260px;
+    width: 100%;
+    height: 100%;
+}
+.skillCardImage {
+    width: 100%;
+    height: 100%;
+}

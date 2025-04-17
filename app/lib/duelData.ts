@@ -3,7 +3,6 @@ import duels from "../models/duel";
 
 export default async function getDuels(duelDeck: String) {
     await connectDB();
-
     try {
         let results: any;
         switch(duelDeck) {
@@ -13,7 +12,7 @@ export default async function getDuels(duelDeck: String) {
             case "vampire":
                 results = duels.vampireDuel;
                 break;
-            case "sacedSoldier":
+            case "sacredSoldier":
                 results = duels.sacredSoldierDuel;
                 break;
             case "dino":
@@ -49,7 +48,7 @@ export default async function getDuels(duelDeck: String) {
             default:
                 throw new Error("deck [" + duelDeck + "] not found");
         }
-        results = await results.find({});   // find all the duels associated with that deck
+        results = await results.find({});   // find all the duels associated with that deck (returns a Query object)
         return {duels: results};            // key: duels, value: array of duels
     } catch(error: any) {
         return {errorMsg: error.message};
