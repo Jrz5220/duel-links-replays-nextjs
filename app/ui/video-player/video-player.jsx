@@ -1,11 +1,11 @@
 "use client";
 
-import React from "react";
+import { useRef } from "react";
 import videojs from "video.js";
 import VideoJSConfig from "./videojs-config";
 
 export default function VideoPlayer({ videoSource, posterImage, videoType }) {
-    const playerRef = React.useRef(null);
+    const playerRef = useRef(null);
     const videoJsOptions = {
         controls: true,
         aspectRatio: "16:9",

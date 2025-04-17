@@ -27,8 +27,6 @@ export default function AddToFavoritesButton({ userId }: { userId: string | null
     // check if this works as intended after a page refresh
     useEffect(() => {
         // the function we want to run everytime our dependencies (defined in the second array parameter) changes values
-
-        throw new Error("Hi! This is a test error message. Please ignore it. If you see this message, it means the error handling code is working as intended. Thank you!", {cause: {status: 409}});
         const doEverything = async () => {
             let favBtn = document.getElementById("addToFavBtn");
             let videoTitle = document.getElementById("videoTitle")?.textContent;
@@ -53,7 +51,10 @@ export default function AddToFavoritesButton({ userId }: { userId: string | null
                         );
                         if(!historyResponse.ok) {
                             let errMsg = await historyResponse.json();
-                            throw new ReferenceError(`Failed to log video to user's history. Status: ${historyResponse.status}; Message: ${errMsg.message}`)
+                            throw new ReferenceError(
+                                `Failed to log video to user's history. Status: ${historyResponse.status}; Message: ${errMsg.message}`, 
+                                { cause: { status: historyResponse.status } }
+                            );
                             // originally, I wanted to display the error message in a <p> element in the html, under the #addToFavBtn button
                             // but I felt a serious server error like this one should redirect to it's own error page, which is error.tsx
                         }
@@ -68,7 +69,10 @@ export default function AddToFavoritesButton({ userId }: { userId: string | null
                     // response.ok checks if the status code is between 200-299 (successful responses)
                     if(!response.ok) {
                         let errMsg = await response.json();
-                        throw new Error(`Failed to retrieve user favorites. Status: ${response.status}; Message: ${errMsg.message}`);
+                        throw new Error(
+                            `Failed to retrieve user favorites. Status: ${response.status}; Message: ${errMsg.message}`
+                            , { cause: { status: response.status } }
+                        );
                     }
                     const json = await response.json(); // the api response contains json data
                     userFavorites = json.favorites;
@@ -143,7 +147,10 @@ export default function AddToFavoritesButton({ userId }: { userId: string | null
                         );
                         if(!response.ok) {
                             let errMsg = await response.json();
-                            throw new Error(`Failed to add video to favorites. Status: ${response.status}; Message: ${errMsg.message}`);
+                            throw new Error(
+                                `Failed to add video to favorites. Status: ${response.status}; Message: ${errMsg.message}`, 
+                                { cause: { status: response.status } }
+                            );
                         }
                         let json = await response.json();
                         // update the favBtn to a remove btn
@@ -160,16 +167,19 @@ export default function AddToFavoritesButton({ userId }: { userId: string | null
                         );
                         if(!response.ok) {
                             let errMsg = await response.json();
-                            throw new Error(`Failed to remove video from favorites. Status: ${response.status}; Message: ${errMsg.message}`);
+                            throw new Error(
+                                `Failed to remove video from favorites. Status: ${response.status}; Message: ${errMsg.message}`,
+                                { cause: { status: response.status } }
+                            );
                         }
                         let json = await response.json();
                         if(favBtn) { updateFavBtnStyle(favBtn, accessibleNameEl, "add"); }
                     }
                 }
             } catch(error: any) {
-                // <ErrorHanlder> component?
-                // or use redirect: https://nextjs.org/docs/app/api-reference/functions/redirect#client-component
+                // use redirect: https://nextjs.org/docs/app/api-reference/functions/redirect#client-component
                 // or set the forScreenReader text to the error message, if it is appropriate
+                throw new Error("The favorites button failed to work. Please try again later");
             }
         }
 
